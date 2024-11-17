@@ -734,15 +734,15 @@ dns-selector:
     valid_input="0"
     resolver_selection=""
     resolver_subselection=""
-    resolver_has_second_ip=""
-    resolver_supports_ipv6=""
+    resolver_has_second_ip="y"
+    resolver_supports_ipv6="y"
     resolver_ipv4_address=""
     resolver_ipv4_address_2=""
     resolver_ipv6_address=""
     resolver_ipv6_address_2=""
     resolver_hostname=""
     resolver_https_address=""
-    set_browser_policy=""
+    set_browser_policy="n"
 
     echo "Below will be some options to set the DNS resolver for systemd-resolved."
     echo "All resolvers support DNS-over-TLS (DoT) or DNS-over-QUIC (DoQ), DNS-over-HTTPS (DoH), and DNSSEC."
@@ -997,7 +997,7 @@ dns-selector:
             ;;
     esac
 
-    read -p "Would you like the resolver to be set in the default browser (hardened-chromium) via management policy? [Y/n] " set_browser_policy
+    read -p "Would you like the resolver to be set in the default browser (hardened-chromium) via management policy? [y/N] " set_browser_policy
     if [[ "$set_browser_policy" == [Yy]* && "$resolver_selection" == 5 ]]; then
         read -p "Please enter the second resolver's HTTPS address (e.g. 'https://security.cloudflare-dns.com/dns-query'): " resolver_https_address
     fi
